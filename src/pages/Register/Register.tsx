@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -35,7 +34,7 @@ export default function Register(props: any) {
             setIsLoading(() => false);
          })
          .catch((err: any) => {
-            setError(() => err.response.data);
+            setError(() => err.response);
             setIsLoading(() => false);
          });
    };
