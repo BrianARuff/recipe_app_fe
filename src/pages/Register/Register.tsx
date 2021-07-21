@@ -30,7 +30,7 @@ export default function Register(props: any) {
          .post(process.env.REACT_APP_REGISTER_URL as any, formData)
          .then((res: any) => {
             console.log(res.data);
-            localStorage.setItem('token', res.data.accessToken);
+            localStorage.setItem('accessToken', res.data.accessToken);
             localStorage.setItem('refreshToken', res.data.refreshToken);
             setIsLoading(() => false);
          })
