@@ -20,19 +20,31 @@ function App() {
                   accessToken ? (
                      <Dashboard {...props} />
                   ) : (
-                     <Redirect to="/login" />
+                     <Redirect to="/register" />
                   )
                }
             />
             <Route
                exact
                path="/login"
-               render={(props) => <Login {...props} />}
+               render={(props) =>
+                  accessToken ? (
+                     <Redirect to="/" {...props} />
+                  ) : (
+                     <Login {...props} />
+                  )
+               }
             />
             <Route
                exact
                path="/register"
-               render={(props) => <Register {...props} />}
+               render={(props) =>
+                  accessToken ? (
+                     <Redirect to="/" {...props} />
+                  ) : (
+                     <Register {...props} />
+                  )
+               }
             />
          </Switch>
       </Router>

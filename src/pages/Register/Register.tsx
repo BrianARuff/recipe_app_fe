@@ -7,7 +7,6 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Typography } from '@material-ui/core';
 import axios from 'axios';
-require('dotenv').config();
 
 export default function Register(props: any) {
    const [formData, setFormData] = useState({
@@ -36,7 +35,7 @@ export default function Register(props: any) {
             localStorage.setItem('accessToken', res.data.accessToken);
             localStorage.setItem('refreshToken', res.data.refreshToken);
             setIsLoading(() => false);
-            props.history.push('/dashboard');
+            props.history.push('/');
          })
          .catch((err: any) => {
             setError(() => err.response.data.error);
