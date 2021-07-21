@@ -8,6 +8,7 @@ import {
 import { routes } from './pages';
 
 function App() {
+   const accessToken = localStorage.getItem('accessToken');
    const { Dashboard, Login, Register } = routes;
    return (
       <Router>
@@ -16,7 +17,11 @@ function App() {
                exact
                path="/"
                render={(props) =>
-                  true ? <Dashboard {...props} /> : <Redirect to="/login" />
+                  accessToken ? (
+                     <Dashboard {...props} />
+                  ) : (
+                     <Redirect to="/login" />
+                  )
                }
             />
             <Route

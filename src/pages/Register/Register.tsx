@@ -36,9 +36,9 @@ export default function Register(props: any) {
             localStorage.setItem('accessToken', res.data.accessToken);
             localStorage.setItem('refreshToken', res.data.refreshToken);
             setIsLoading(() => false);
+            props.history.push('/dashboard');
          })
          .catch((err: any) => {
-            console.log(err);
             setError(() => err.response.data.error);
             setIsLoading(() => false);
          });
